@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+body {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+  color: #fff;
+}
+
+.glow-text {
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+}
+
+.card {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.button {
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+/* Add to globals.css */
+@keyframes glow {
+  0% { box-shadow: 0 0 10px rgba(0, 191, 255, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(0, 191, 255, 0.8); }
+  100% { box-shadow: 0 0 10px rgba(0, 191, 255, 0.5); }
+}
+
+.glow-text {
+  animation: glow 2s infinite alternate;
+}
+
+/* Button hover effects */
+.btn-hover-effect {
+  transition: all 0.3s ease;
+}
+
+.btn-hover-effect:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+}
+
+/* Gradient text styling */
+.gradient-text {
+  background: linear-gradient(90deg, #00cfff, #007aff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Add to globals.css */
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* For smooth transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.3s;
+}
+
+/* Gradient background for cards */
+.card-gradient {
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+}
+
