@@ -1,0 +1,35 @@
+# 二进制文件
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# 测试二进制文件，用 `go test -c` 生成
+*.test
+
+# 输出目录（如 `go build` 的输出，如果你指定了特定目录）
+/dist
+/bin
+/out
+
+# 依赖包目录（Go Modules 模式下，vendor/ 不是必须提交的）
+/vendor/
+
+# Go 工作空间文件
+go.work
+
+# IDE（Goland）特定文件
+.idea/
+
+# 环境变量文件
+.env
+.env.local
+
+# 调试信息
+debug
+*.pprof
+*.prof
+
+# 日志文件
+*.log
