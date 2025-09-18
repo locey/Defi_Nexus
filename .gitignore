@@ -34,3 +34,8 @@ debug
 # 日志文件
 *.log
 READMe.md
+nexus-contract/node_modules
+nexus-contract/.env
+
+
+nexus-backend/.idea
