@@ -1,40 +1,8 @@
+### 这是一个去中心化借贷协议聚合器的前端应用，旨在为用户提供统一的DeFi借贷体验。项目集成了Aave、Compound等主流借贷协议，通过智能算法自动为用户匹配最优的借贷利率和条件，让用户能够在一个平台上轻松比较和选择不同协议的借贷服务，大大简化了DeFi操作的复杂性。项目的创新亮点在于引入了基于区块链数据的去中心化信用评分系统，通过分析用户的借款历史、还款记录、借贷频率等链上行为数据，为每个用户计算个性化的信用评分。信用评分越高的用户可以享受更低的借贷利率、更高的借贷额度和专属权益，同时配合空投任务系统激励用户积极参与生态建设，形成了一个完整的DeFi借贷生态闭环。
 
-### 项目目录结构
-
-    nexus-backend/
-    ├── cmd/
-    │   └── server/
-    │       └── main.go          # 程序入口变得非常简洁，只负责启动
-    │── common/                  # 公共文件
-    ├── internal/                # 内部代码，禁止被外部项目导入（Go 1.4+ 特性）
-    │   ├── controllers/         # 控制器层，处理HTTP请求响应
-    │   │   └── user_controller.go
-    │   ├── services/           # 服务层，核心业务逻辑在这里
-    │   │   └── user_service.go
-    │   ├── repositories/        # 仓储层，负责直接与数据库交互
-    │   │   └── user_repository.go
-    │   ├── models/             # 模型/实体定义
-    │   │   └── user.go
-    │   ├── middleware/         # 中间件
-    │   │   └── jwt_auth.go
-    │   └── pkg/                # 可供外部导入的公共代码（如工具函数、客户端）
-    │       ├── auth/
-    │       ├── database/
-    │       └── response/
-    ├── configs/                # 配置文件
-    │   └── config.yaml
-    ├── deployments/            # 部署相关文件（Dockerfile, k8s yaml）
-    │   └── Dockerfile
-    ├── tests/                  # 额外的测试代码
-    ├── scripts/                # 脚本文件
-    ├── go.mod
-    └── go.sum
-
-
-### 技术栈
-golang 1.23  
-gin 1.10   
-mysql 8.0  
-redis 7.2  
-kafka 3.7
+    Defi_Nexus/
+    ├── nexus-backend/          # 后端API服务（golang）
+    ├── nexus-frontend/         # 前端Web应用（dapp）
+    ├── nexus-contracts/        # 智能合约项目（solidity）
+    └── README.md               # 总说明：这是一个DeFi聚合生态项目集
 
