@@ -1,0 +1,71 @@
+/* credit-score.css */
+/* 这个样式文件会自动继承现有项目的全局样式 */
+/* 主要补充一些特定于信用评分组件的样式 */
+
+.credit-score-container {
+  background-color: #0a0a0a;
+  color: #fff;
+}
+
+.credit-score-card {
+  background-color: #111;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.credit-score-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 212, 255, 0.2);
+}
+
+.credit-score-circle {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.credit-score-level {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.credit-score-level span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.credit-score-level-text {
+  font-size: 0.8rem;
+  color: #ccc;
+  margin-top: 5px;
+}
+
+.credit-score-trend {
+  width: 100%;
+  height: 200px;
+  background-color: #111;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .credit-score-container {
+    padding: 15px;
+  }
+  
+  .credit-score-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .credit-score-card {
+    min-width: 100%;
+  }
+  
+  .credit-score-trend {
+    height: 150px;
+  }
+}

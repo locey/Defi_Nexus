@@ -1,5 +1,7 @@
 // src/components/StatsSection.tsx
+"use client";
 import React from "react";
+import { useAccount, useConnect, useDisconnect } from 'wagmi'
 const features = [
     {
         icon: "⚡",
@@ -45,6 +47,23 @@ const protocols = [
 
 
 export default function StatsSection() {
+    const account = useAccount()
+    const { connectors, connect, status, error } = useConnect()
+    const { disconnect } = useDisconnect()
+
+    const connectWallet = () => {
+        // 使用wagmi链接钱包
+        if (!account.address) {
+            const connector = connectors[0] // 选择第一个连接器（通常是MetaMask）
+            connect({ connector })
+        } else {
+            disconnect()
+        }
+    }
+    const disconnectWallet = () => {
+        // 使用wagmi断开钱包
+        disconnect()
+    }
     return (
         <div className="w-full max-w-6xl mx-auto px-4 py-20">
             <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -183,14 +202,24 @@ export default function StatsSection() {
                             </p>
 
                             {/* Connect Wallet Button */}
-                            <button
+                            {!account.address &&<button
                                 className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-8 py-4 rounded-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
+                                onClick={()=>connectWallet()}
                             >
                                 <span>连接钱包开始</span>
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                 </svg>
-                            </button>
+                            </button>}
+                            {account.address &&<button
+                                className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-8 py-4 rounded-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
+                                onClick={()=>disconnectWallet()}
+                            >
+                                <span>断开钱包连接</span>
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>}
                         </div>
                     </div>
                 </div>

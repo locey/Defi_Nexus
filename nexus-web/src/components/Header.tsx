@@ -2,10 +2,26 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-
+import { useAccount, useConnect, useDisconnect } from 'wagmi'
 export default function Header() {
     const pathname = usePathname()
+    const account = useAccount()
+    const { connectors, connect, status, error } = useConnect()
+    const { disconnect } = useDisconnect()
 
+    const connectWallet = () => {
+        // 使用wagmi链接钱包
+        if (!account.address) {
+            const connector = connectors[0] // 选择第一个连接器（通常是MetaMask）
+            connect({ connector })
+        } else {
+            disconnect()
+        }
+    }
+    const disconnectWallet = () => {
+        // 使用wagmi断开钱包
+        disconnect()
+    }
     return (
         <header className="sticky top-0 z-50 backdrop-filter backdrop-blur-lg via-gray-900 to-black text-white py-4 px-6 flex justify-between items-center relative w-full border-b border-gray-800">
             <div className="flex items-center space-x-3 group">
@@ -21,10 +37,10 @@ export default function Header() {
                 </div>
             </div>
 
-            <nav className="flex items-center space-x-8">
+            <nav className="flex items-center space-x-8 height-full">
                 <Link
                     href='/'
-                    className={`text-sm transition-all duration-300 font-medium relative group ${pathname === '/' ? 'text-[#00d4ff]' : 'hover:text-[#00d4ff]'
+                    className={`pr-3 pl-3 pb-3 mr-3 ml-3  transition-all duration-300 font-medium relative group ${pathname === '/' ? 'text-[#00d4ff]' : 'hover:text-[#00d4ff]'
                         }`}
                 >
                     首页
@@ -33,7 +49,7 @@ export default function Header() {
                 </Link>
                 <Link
                     href='/borrow'
-                    className={`text-sm transition-all duration-300 font-medium relative group ${pathname === '/borrow' ? 'text-[#00d4ff]' : 'hover:text-[#00d4ff]'
+                    className={`pr-3 pl-3 pb-3 mr-3 ml-3 transition-all duration-300 font-medium relative group ${pathname === '/borrow' ? 'text-[#00d4ff]' : 'hover:text-[#00d4ff]'
                         }`}
                 >
                     借贷
@@ -42,7 +58,7 @@ export default function Header() {
                 </Link>
                 <Link
                     href='/credit'
-                    className={`text-sm transition-all duration-300 font-medium relative group ${pathname === '/credit' ? 'text-[#00d4ff]' : 'hover:text-[#00d4ff]'
+                    className={`pr-3 pl-3 pb-3 mr-3 ml-3 transition-all duration-300 font-medium relative group ${pathname === '/credit' ? 'text-[#00d4ff]' : 'hover:text-[#00d4ff]'
                         }`}
                 >
                     信用
@@ -51,7 +67,7 @@ export default function Header() {
                 </Link>
                 <Link
                     href='/airdrop'
-                    className={`text-sm transition-all duration-300 font-medium relative group ${pathname === '/airdrop' ? 'text-[#00d4ff]' : 'hover:text-[#00d4ff]'
+                    className={`pr-3 pl-3 pb-3 mr-3 ml-3 transition-all duration-300 font-medium relative group ${pathname === '/airdrop' ? 'text-[#00d4ff]' : 'hover:text-[#00d4ff]'
                         }`}
                 >
                     空投
@@ -59,12 +75,26 @@ export default function Header() {
                         }`}></span>
                 </Link>
             </nav>
-
-            <button className="relative bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 text-white px-2 py-2 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 transform hover:-translate-y-1 border border-purple-500/30 group">
+            {!account.address &&(<button className="relative bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 text-white px-2 py-2 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 transform hover:-translate-y-1 border border-purple-500/30 group" onClick={connectWallet}>
                 <span className="relative z-10">连接钱包</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-cyan-400/30 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-purple-400/30 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </button>
+            </button>)}
+            {account.address && (account.address ? (
+                <>
+                    <span className="text-sm text-gray-400 mr-4 hidden md:inline-block">已连接: {account.address.substring(0, 6)}...{account.address.substring(account.address.length - 4)}</span>
+                    <button className="relative bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 text-white px-2 py-2 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 transform hover:-translate-y-1 border border-purple-500/30 group" onClick={disconnectWallet}>
+                        <span className="relative z-10">断开连接</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-cyan-400/30 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </button>
+                </>
+                
+            ) : (
+                <button className="relative bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 text-white px-2 py-2 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 transform hover:-translate-y-1 border border-purple-500/30 group" onClick={connectWallet}>
+                    <span className="relative z-10">连接钱包</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-cyan-400/30 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </button>
+            ))}
 
             <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-b from-cyan-400/20 to-transparent opacity-50 animate-pulse"></div>
             <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-b from-purple-600/20 to-transparent opacity-50 animate-pulse"></div>

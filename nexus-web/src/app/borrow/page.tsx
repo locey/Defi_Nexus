@@ -62,7 +62,7 @@ const Borrow = () => {
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         {/* Page Header */}
-        <div className="text-center mb-8">
+        <div className="mb-8">
           {/* text-shadow: 0 0 10px #00d4ff80; */}
           <h1 className="text-3xl font-bold text-[#00d4ff] text-shadow-[0_0_10px_#00d4ff80] mb-2">借贷市场</h1>
           <p className="text-gray-400 text-sm">聚合Aave、Compound等协议，为您提供最优借贷利率和条件</p>
