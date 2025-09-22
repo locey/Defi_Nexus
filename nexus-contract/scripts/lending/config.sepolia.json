@@ -1,0 +1,10 @@
+{
+	"AAVE_POOL_ADDRESS": "",
+	"AAVE_DATA_PROVIDER_ADDRESS": "",
+	"ASSETS": {
+		"WETH": "",
+		"USDC": "",
+		"USDT": "",
+		"WBTC": ""
+	}
+}
