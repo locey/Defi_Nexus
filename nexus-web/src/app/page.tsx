@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-between bg-black">
+    <main className="min-h-screen flex flex-col items-center justify-between bg-gradient-to-br from-indigo-900/30 via-purple-900/20 to-pink-800/30">
       <Header />
 
       {/* Hero Section */}

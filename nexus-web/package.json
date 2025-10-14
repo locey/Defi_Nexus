@@ -17,6 +17,7 @@
     "wagmi": "latest"
   },
   "devDependencies": {
+    "@heroicons/react": "^2.2.0",
     "@tailwindcss/postcss": "^4.1.13",
     "@types/node": "^20.12.10",
     "@types/react": "^18.3.1",
