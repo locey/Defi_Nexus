@@ -78,7 +78,7 @@ contract LendingAggregator {
 			(
 				uint256 supplyApyRay,
 				uint256 variableBorrowApyRay,
-				uint256 /*stableBorrowApyRay*/
+				uint256 _stableBorrowApyRay
 			) = ILendingAdapter(adapter).getRates(asset);
 			if (supplyApyRay > bestSupplyApyRay) {
 				bestSupplyApyRay = supplyApyRay;

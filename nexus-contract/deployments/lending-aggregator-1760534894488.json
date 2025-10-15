@@ -1,0 +1,13 @@
+{
+  "contractName": "LendingAggregator",
+  "address": "0xcdeC17282C14b32C66ba588805ECc98116f95444",
+  "deployer": "0xd19a554FeEa3d76F91bb98390fE37975a58337f1",
+  "owner": "0xd19a554FeEa3d76F91bb98390fE37975a58337f1",
+  "network": {
+    "name": "sepolia",
+    "chainId": "11155111"
+  },
+  "constructorArgs": {},
+  "deploymentTime": "2025-10-15T13:28:14.488Z",
+  "transactionHash": "0x5a96a7f3b9cd8a0c77666745606f2163313dcae41dfb5903a183165cc983d004"
+}

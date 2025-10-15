@@ -3,13 +3,24 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy:lending:sepolia": "hardhat run scripts/lending/deploy-all.js --network sepolia",
+    "deploy:lending:local": "hardhat run scripts/lending/deploy-all.js --network hardhat",
+    "register:aave:sepolia": "hardhat run scripts/lending/register-aave-adapter.js --network sepolia",
+    "register:aave:local": "hardhat run scripts/lending/register-aave-adapter.js --network hardhat",
+    "get:metrics:sepolia": "hardhat run scripts/lending/get-core-metrics.js --network sepolia",
+    "get:metrics:local": "hardhat run scripts/lending/get-core-metrics.js --network hardhat",
+    "stats:sepolia": "hardhat run scripts/lending/quick-stats.js --network sepolia",
+    "stats:local": "hardhat run scripts/lending/quick-stats.js --network hardhat",
+    "verify:lending:sepolia": "hardhat run scripts/lending/verify-contracts.js --network sepolia",
+    "verify:lending:local": "hardhat run scripts/lending/verify-contracts.js --network hardhat"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "dotenv": "^17.2.3",
     "hardhat": "^2.26.3"
-  },
-  "type": "module"
+  }
 }

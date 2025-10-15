@@ -1,0 +1,15 @@
+{
+  "contractName": "AaveAdapter",
+  "address": "0x29d96b05bdF0B4B1BA312c8A710E2549B6b95B6f",
+  "deployer": "0xd19a554FeEa3d76F91bb98390fE37975a58337f1",
+  "network": {
+    "name": "sepolia",
+    "chainId": "11155111"
+  },
+  "constructorArgs": {
+    "pool": "0x6Ae43d3271ff6888e7Fc43Fd7321a503ff738951",
+    "dataProvider": "0x9cfc8b2b62F9928C79b1c0C0C82e7B3D8B8c8c8C"
+  },
+  "deploymentTime": "2025-10-15T13:25:39.565Z",
+  "transactionHash": "0x393a0f9615555995e87507a2e4bef68b71a58913ad10b161ebf69aab6a5b7814"
+}

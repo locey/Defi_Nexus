@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-10-15T13:45:02.020Z",
+  "operator": "0xd19a554FeEa3d76F91bb98390fE37975a58337f1",
+  "network": {
+    "name": "sepolia",
+    "chainId": "11155111"
+  },
+  "lendingAggregator": {
+    "address": "0xcdeC17282C14b32C66ba588805ECc98116f95444",
+    "transactionHash": "0xed2002fbba7d250352318f8795d5624a80826f9eb50b6787c980e7b5ba40b0fe",
+    "blockNumber": 9417475
+  },
+  "aaveAdapter": {
+    "address": "0x29d96b05bdF0B4B1BA312c8A710E2549B6b95B6f",
+    "protocolId": 1
+  },
+  "registration": {
+    "success": true,
+    "message": "Aave 适配器注册成功"
+  }
+}
